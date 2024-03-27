@@ -8,6 +8,7 @@ var start = 0;
 var player_workers = []
 var opponent_workers = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Button.pressed.connect(_on_change_phase);

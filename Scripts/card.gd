@@ -85,19 +85,19 @@ func _process(delta):
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		var game_manager = get_parent().get_node('GameManager')
-		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
-			if curr_area and UiVariables.player_gold >= self.gold_cost and UiVariables.player_arcane >= self.arcane_cost and self.action != 'cast' and !opponent and 'Opponent' not in curr_area.name and 'Worker' not in curr_area.name:
+		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and self.card_id != 'Worker':
+			if curr_area and UiVariables.player_gold >= self.gold_cost and UiVariables.player_arcane >= self.arcane_cost and self.action != 'cast' and !opponent and 'Opponent' not in curr_area.name and 'Worker' not in curr_area.name and len(curr_area.cards_in_zone) < 5 and game_manager.turn == 'Player':
 				_cast_card()
-			elif curr_area and UiVariables.player_gold_opponent >= self.gold_cost and UiVariables.player_arcane_opponent >= self.arcane_cost and self.action != 'cast' and opponent and 'Opponent' in curr_area.name and  'Worker' not in curr_area.name:
+			elif curr_area and UiVariables.player_gold_opponent >= self.gold_cost and UiVariables.player_arcane_opponent >= self.arcane_cost and self.action != 'cast' and opponent and 'Opponent' in curr_area.name and  'Worker' not in curr_area.name and len(curr_area.cards_in_zone) < 5 and game_manager.turn == 'Opponent': 
 				_cast_card()
 			elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and self.action == 'cast':
 				if !UiVariables.select:
 					SignalBus._on_card_selected.emit(self)
-				elif UiVariables.select != self and game_manager.phases[game_manager.phase_index] == 'Main' and self.card_id != 'Worker':
+				elif UiVariables.select != self and game_manager.phases[game_manager.phase_index] == 'Main':
 					SignalBus._on_card_targeted.emit(self)
 					SignalBus._on_card_deselected.emit()
 
-		elif event.button_index == MOUSE_BUTTON_RIGHT and !event.pressed and self.card_id == 'Worker' and game_manager.phases[game_manager.phase_index] == 'Assign':
+		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and self.card_id == 'Worker' and game_manager.phases[game_manager.phase_index] == 'Assign':
 			if self.card_mode == 'Merchant':
 				self.card_mode = 'Wizard'
 				self.card_name = 'Wizard'
@@ -142,7 +142,7 @@ func _card_destroyed(card):
 		self.queue_free()
 		
 func _on_card_targeted(card):
-	if self == card:
+	if self == card and self.opponent != UiVariables.select.opponent:
 		self.hp -= int(UiVariables.select.attack)
 		UiVariables.select.hp -= int(self.attack)
 		if self.hp <= 0:
