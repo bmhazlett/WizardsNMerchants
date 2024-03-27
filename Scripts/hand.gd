@@ -14,33 +14,30 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	
-func _on_card_added_to_hand(card):
-	if opponent:
-		return
-	print('good hand')
-	cards_in_hand.append(card)
+	update_hand()
+
+func update_hand():
 	var i = 0
 	while i < len(cards_in_hand):
 		if cards_in_hand[i].location == 'hand':
 			cards_in_hand[i].position = Vector2(self.position.x + i * 85, self.position.y)
 		i += 1
+
+func _on_card_added_to_hand(card):
+	if opponent:
+		return
+	cards_in_hand.append(card)
+
 
 func _on_card_added_to_opponent_hand(card):
 	if not opponent:
 		return
-	print('bad hand')
 	cards_in_hand.append(card)
-	var i = 0
-	while i < len(cards_in_hand):
-		if cards_in_hand[i].location == 'hand':
-			cards_in_hand[i].position = Vector2(self.position.x + i * 85, self.position.y)
-		i += 1
+
 
 func _on_card_casted(card, curr_area):
-	var i = 0
 	var found = false
+	var i = 0
 	while i < len(cards_in_hand):
 		if card == cards_in_hand[i]:
 			found = true
@@ -48,15 +45,11 @@ func _on_card_casted(card, curr_area):
 		i += 1
 	if found:
 		cards_in_hand.remove_at(i)
-	i = 0
-	while i < len(cards_in_hand):
-		if cards_in_hand[i].location == 'hand':
-			cards_in_hand[i].position = Vector2(self.position.x + i * 85, self.position.y)
-		i += 1
+
 
 func _on_card_destroyed(card):
-	var i = 0
 	var found = false
+	var i = 0
 	while i < len(cards_in_hand):
 		if card == cards_in_hand[i]:
 			found = true
@@ -64,8 +57,3 @@ func _on_card_destroyed(card):
 		i += 1
 	if found:
 		cards_in_hand.remove_at(i)
-	i = 0
-	while i < len(cards_in_hand):
-		if cards_in_hand[i].location == 'hand':
-			cards_in_hand[i].position = Vector2(self.position.x + i * 85, self.position.y)
-		i += 1

@@ -40,6 +40,7 @@ func _input_event(viewport, event, shape_idx):
 			dragging = false
 			if curr_area and 'action' in curr_area and curr_area.action == 'dragging':
 				curr_area.action = 'none'
+				curr_area.location = 'hand'
 
 func _area_entered(area):
 	any_area = area
