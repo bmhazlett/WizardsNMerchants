@@ -86,14 +86,14 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		var game_manager = get_parent().get_node('GameManager')
 		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
-			if curr_area and UiVariables.player_gold >= self.gold_cost and UiVariables.player_arcane >= self.arcane_cost and self.action != 'cast' and !opponent:
+			if curr_area and UiVariables.player_gold >= self.gold_cost and UiVariables.player_arcane >= self.arcane_cost and self.action != 'cast' and !opponent and 'Opponent' not in curr_area.name and 'Worker' not in curr_area.name:
 				_cast_card()
-			elif curr_area and UiVariables.player_gold_opponent >= self.gold_cost and UiVariables.player_arcane_opponent >= self.arcane_cost and self.action != 'cast' and opponent:
+			elif curr_area and UiVariables.player_gold_opponent >= self.gold_cost and UiVariables.player_arcane_opponent >= self.arcane_cost and self.action != 'cast' and opponent and 'Opponent' in curr_area.name and  'Worker' not in curr_area.name:
 				_cast_card()
 			elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and self.action == 'cast':
 				if !UiVariables.select:
 					SignalBus._on_card_selected.emit(self)
-				elif UiVariables.select != self and game_manager.phases[game_manager.phase_index] == 'Main':
+				elif UiVariables.select != self and game_manager.phases[game_manager.phase_index] == 'Main' and self.card_id != 'Worker':
 					SignalBus._on_card_targeted.emit(self)
 					SignalBus._on_card_deselected.emit()
 
