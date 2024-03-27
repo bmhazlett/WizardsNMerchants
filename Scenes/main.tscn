@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7a4c1vqfl1el"]
+
+[ext_resource type="PackedScene" uid="uid://dutt2y3ncmxxr" path="res://Scenes/deck.tscn" id="2_u2527"]
+[ext_resource type="Script" path="res://Scripts/player_gold.gd" id="3_j7cpw"]
+[ext_resource type="Script" path="res://Scripts/player_arcane.gd" id="4_fb8qw"]
+[ext_resource type="PackedScene" uid="uid://dchu42by6v1vj" path="res://Scenes/selector.tscn" id="5_g1ib0"]
+[ext_resource type="PackedScene" uid="uid://clm5bt4xsfyrm" path="res://Scenes/hand.tscn" id="6_bw57u"]
+[ext_resource type="PackedScene" uid="uid://u74e3kvuwh5a" path="res://Scenes/cast_zone.tscn" id="6_yvhau"]
+[ext_resource type="Script" path="res://Scripts/cast_zone.gd" id="7_kvy7o"]
+[ext_resource type="PackedScene" uid="uid://dsssnufkxh05q" path="res://Scenes/player_card.tscn" id="8_vp4ic"]
+[ext_resource type="PackedScene" uid="uid://b4tbxugywowan" path="res://Scenes/game_manager.tscn" id="9_nvgda"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerGold" type="Label" parent="."]
+offset_left = 1535.0
+offset_top = 949.0
+offset_right = 1575.0
+offset_bottom = 972.0
+text = "G"
+script = ExtResource("3_j7cpw")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerGold_Opponent" type="Label" parent="."]
+offset_left = 404.0
+offset_top = 171.0
+offset_right = 444.0
+offset_bottom = 194.0
+text = "G"
+script = ExtResource("3_j7cpw")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerArcane" type="Label" parent="."]
+offset_left = 1536.0
+offset_top = 972.0
+offset_right = 1576.0
+offset_bottom = 995.0
+text = "A"
+script = ExtResource("4_fb8qw")
+
+[node name="PlayerArcane_Opponent" type="Label" parent="."]
+offset_left = 406.0
+offset_top = 199.0
+offset_right = 446.0
+offset_bottom = 222.0
+text = "A"
+script = ExtResource("4_fb8qw")
+
+[node name="Selector" parent="." instance=ExtResource("5_g1ib0")]
+
+[node name="Hand" parent="." instance=ExtResource("6_bw57u")]
+position = Vector2(805, 1012)
+
+[node name="Hand_Opponent" parent="." instance=ExtResource("6_bw57u")]
+position = Vector2(797, 82)
+
+[node name="Deck" parent="." instance=ExtResource("2_u2527")]
+position = Vector2(1703, 1010)
+
+[node name="Deck_Opponent" parent="." instance=ExtResource("2_u2527")]
+position = Vector2(451, 86)
+
+[node name="CastZone_Unit" parent="." instance=ExtResource("6_yvhau")]
+position = Vector2(1130, 720)
+scale = Vector2(30, 1)
+script = ExtResource("7_kvy7o")
+
+[node name="CastZone_Unit_Opponent" parent="." instance=ExtResource("6_yvhau")]
+position = Vector2(1129, 388)
+scale = Vector2(30, 1)
+script = ExtResource("7_kvy7o")
+
+[node name="CastZone_Worker" parent="." instance=ExtResource("6_yvhau")]
+position = Vector2(1131, 875)
+scale = Vector2(30, 1)
+script = ExtResource("7_kvy7o")
+
+[node name="CastZone_Worker_Opponent" parent="." instance=ExtResource("6_yvhau")]
+position = Vector2(1127, 231)
+scale = Vector2(30, 1)
+script = ExtResource("7_kvy7o")
+
+[node name="Player_Card" parent="." instance=ExtResource("8_vp4ic")]
+position = Vector2(459, 994)
+
+[node name="Player_Card_Opponent" parent="." instance=ExtResource("8_vp4ic")]
+position = Vector2(1718, 81)
+
+[node name="GameManager" parent="." instance=ExtResource("9_nvgda")]
+position = Vector2(1722, 544)

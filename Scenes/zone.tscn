@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgf1lnkbi8ki0"]
+
+[ext_resource type="Texture2D" uid="uid://c4rr4j8krw3lq" path="res://Sprites/zone.png" id="1_fkpst"]
+[ext_resource type="Script" path="res://Scripts/zone.gd" id="1_yiajd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4w6d"]
+radius = 86.56
+
+[node name="Zone" type="Area2D"]
+z_index = -1
+position = Vector2(498, 137)
+input_pickable = false
+script = ExtResource("1_yiajd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.5)
+texture = ExtResource("1_fkpst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("CircleShape2D_t4w6d")

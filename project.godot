@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Merchants&Wizards"
+run/main_scene="res://Scenes/main.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://Sprites/icon.svg"
+
+[autoload]
+
+SignalBus="*res://Scripts/signal_bus.gd"
+UiVariables="*res://Scripts/ui_variables.gd"
+CardDB="*res://Scripts/card_db.gd"
+
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

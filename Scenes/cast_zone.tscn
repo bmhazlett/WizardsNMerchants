@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://u74e3kvuwh5a"]
+
+[ext_resource type="Texture2D" uid="uid://db7ex25cha8s5" path="res://Sprites/Cast_Zone.png" id="1_2l3y8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikwv6"]
+size = Vector2(30, 134)
+
+[node name="CastZone" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2l3y8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikwv6")
