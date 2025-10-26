@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddutt8ag3d6h"]
+
+[ext_resource type="Texture2D" uid="uid://gtlh7tj3kaqn" path="res://Sprites/Menu_Base.png" id="1_s38vm"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wjga0"]
+[ext_resource type="Script" path="res://Scenes/ReturnToGameButton.gd" id="2_hwfb5"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="2_ock71"]
+
+[node name="Menu" type="Control"]
+process_mode = 3
+z_index = 1999
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wjga0")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+z_index = 2000
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReturnToGameButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Return To Game
+"
+script = ExtResource("2_hwfb5")
+
+[node name="BackButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Return to Title Screen"
+script = ExtResource("2_ock71")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+position = Vector2(87, 55)
+scale = Vector2(1.66406, 1)
+texture = ExtResource("1_s38vm")

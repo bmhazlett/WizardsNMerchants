@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brtpk1pp6drt6"]
+
+[ext_resource type="Script" path="res://Abilities/Rally.gd" id="1_7j3dv"]
+
+[node name="Draw" type="Node"]
+script = ExtResource("1_7j3dv")

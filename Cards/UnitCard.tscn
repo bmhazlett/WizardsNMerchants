@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq8t207136x61"]
+
+[ext_resource type="PackedScene" uid="uid://cva7v8sps5qq0" path="res://Cards/CardBase.tscn" id="1_0oej5"]
+[ext_resource type="Script" path="res://Cards/UnitCard.gd" id="2_4hix8"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_vbijk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b05gm"]
+resource_local_to_scene = true
+size = Vector2(63.5, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6pw8"]
+resource_local_to_scene = true
+shader = ExtResource("2_vbijk")
+shader_parameter/onoff = 0.0
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[node name="CardBase" instance=ExtResource("1_0oej5")]
+script = ExtResource("2_4hix8")
+
+[node name="CollisionShape2DFull" parent="." index="0"]
+shape = SubResource("RectangleShape2D_b05gm")
+
+[node name="CollisionShape2DHand" parent="." index="1"]
+shape = SubResource("RectangleShape2D_b05gm")
+
+[node name="Base" parent="." index="2"]
+material = SubResource("ShaderMaterial_e6pw8")
+
+[node name="Type" parent="Control" index="6"]
+visible = true
+
+[node name="Class" parent="Control" index="7"]
+visible = false

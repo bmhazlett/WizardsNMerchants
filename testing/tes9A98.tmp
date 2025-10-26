@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://4v1bcy0716kl"]
+
+[ext_resource type="Script" path="res://testing/BackPage.gd" id="1_kdocr"]
+[ext_resource type="Script" path="res://testing/ForwardPage.gd" id="2_ckbsi"]
+[ext_resource type="Script" path="res://testing/CurrentPage.gd" id="3_jhn8u"]
+
+[node name="TestingCollectionView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 329.0
+offset_right = 523.0
+offset_bottom = 381.0
+text = "<"
+script = ExtResource("1_kdocr")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 332.0
+offset_right = 1297.0
+offset_bottom = 384.0
+text = ">"
+script = ExtResource("2_ckbsi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 255.0
+offset_right = 962.0
+offset_bottom = 321.0
+text = "Label"
+script = ExtResource("3_jhn8u")

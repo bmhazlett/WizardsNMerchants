@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8oh14ex251yk"]
+
+[ext_resource type="Theme" uid="uid://brgtgge5tguud" path="res://Themes/complete_theme.tres" id="1_5fuy3"]
+[ext_resource type="FontFile" uid="uid://b453ejsanwaxe" path="res://New_Implementation/Font/PrintChar21.ttf" id="1_bd0fj"]
+[ext_resource type="Script" path="res://Scripts/deck_view_tabs.gd" id="1_gv0n8"]
+[ext_resource type="PackedScene" uid="uid://hbduegnsp4mk" path="res://Scenes/deck_view.tscn" id="2_bcaq7"]
+
+[node name="tabcontainer" type="TabContainer"]
+offset_right = 412.0
+offset_bottom = 720.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("1_5fuy3")
+theme_override_fonts/font = ExtResource("1_bd0fj")
+script = ExtResource("1_gv0n8")
+
+[node name="Deck1" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_5fuy3")
+
+[node name="DeckView" parent="Deck1" instance=ExtResource("2_bcaq7")]
+layout_mode = 2
+
+[node name="Deck2" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_5fuy3")
+
+[node name="DeckView2" parent="Deck2" instance=ExtResource("2_bcaq7")]
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbgsn62uw7lc7"]
+
+[ext_resource type="Script" path="res://Abilities/Buff.gd" id="1_cas8w"]
+
+[node name="Buff" type="Node"]
+script = ExtResource("1_cas8w")

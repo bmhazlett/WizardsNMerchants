@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://be7yt1p5165nu"]
+
+[ext_resource type="Script" path="res://Scripts/horizonal_card_viewer.gd" id="1_kjni3"]
+[ext_resource type="Script" path="res://Scripts/Close_Button.gd" id="2_ocl4i"]
+[ext_resource type="Texture2D" uid="uid://cbcbqg1687tp8" path="res://Sprites/Card_Shadow.png" id="3_aqgva"]
+
+[node name="HorizonalCardViewer" type="Control"]
+process_mode = 3
+z_index = 21
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjni3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+z_index = 21
+layout_mode = 0
+offset_left = 8.0
+offset_right = 312.0
+offset_bottom = 104.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+z_index = 21
+layout_mode = 2
+
+[node name="Close" type="Button" parent="."]
+z_index = 21
+layout_mode = 0
+offset_left = 232.0
+offset_top = 112.0
+offset_right = 282.0
+offset_bottom = 143.0
+text = "Close"
+script = ExtResource("2_ocl4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(160, 75.25)
+scale = Vector2(4.86364, 1.78488)
+texture = ExtResource("3_aqgva")
+
+[node name="Label" type="Label" parent="."]
+z_index = 21
+layout_mode = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 48.0
+offset_bottom = 143.0
+text = "Graveyard"

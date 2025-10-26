@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://hbduegnsp4mk"]
+
+[ext_resource type="Theme" uid="uid://brgtgge5tguud" path="res://Themes/complete_theme.tres" id="1_7keki"]
+[ext_resource type="Script" path="res://Scripts/DeckViewer.gd" id="1_x3dhx"]
+[ext_resource type="FontFile" uid="uid://b453ejsanwaxe" path="res://New_Implementation/Font/PrintChar21.ttf" id="3_clhnm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qiu5"]
+font = ExtResource("3_clhnm")
+font_size = 12
+
+[node name="DeckView" type="VBoxContainer"]
+offset_right = 233.0
+offset_bottom = 676.0
+theme = ExtResource("1_7keki")
+script = ExtResource("1_x3dhx")
+
+[node name="CardCount" type="Label" parent="."]
+layout_mode = 2
+text = "Cards in deck: 0"
+label_settings = SubResource("LabelSettings_5qiu5")

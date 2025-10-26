@@ -8,6 +8,8 @@ var player_arcane_opponent = 0
 var mouse_busy = false
 var select = null
 var target = null
+var hover = null
+var multi_hover = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,15 +21,12 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_card_selected(card):
+func _on_card_selected(card, action, action_input):
 	select = card
-	print('select', select)
 	
 func _on_card_targeted(card):
 	target = card
-	print('target', target)
 	
-func _on_card_deselected():
+func _on_card_deselected(card):
 	select = null
 	target = null
-	print('Deselected')

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1wdqbm34vk6a"]
+
+[ext_resource type="Script" path="res://Abilities/Thieve.gd" id="1_wspif"]
+
+[node name="Thieve" type="Node"]
+script = ExtResource("1_wspif")

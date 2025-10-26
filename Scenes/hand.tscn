@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://clm5bt4xsfyrm"]
+[gd_scene load_steps=3 format=3 uid="uid://clm5bt4xsfyrm"]
 
 [ext_resource type="Script" path="res://Scripts/hand.gd" id="1_iialy"]
 
+[sub_resource type="Curve" id="Curve_0hs12"]
+_data = [Vector2(0.0058997, 0.0283892), 0.0, 0.0, 0, 0, Vector2(0.132743, 0.148899), 0.0, 0.0, 0, 0, Vector2(0.241888, 0.254345), 0.0, 0.0, 0, 0, Vector2(0.359882, 0.502897), 0.0, 0.0, 0, 0, Vector2(0.498525, 1), 0.0, 0.0, 0, 0, Vector2(0.640118, 0.510429), 0.0, 0.0, 0, 0, Vector2(0.79351, 0.261877), 0.0, 0.0, 0, 0, Vector2(0.985251, 0.0359211), 0.0, 0.0, 0, 0]
+point_count = 8
+
 [node name="Hand" type="Node2D"]
 script = ExtResource("1_iialy")
+test_curve = SubResource("Curve_0hs12")

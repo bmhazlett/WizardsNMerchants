@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://baddjwufnsb25"]
+
+[ext_resource type="Script" path="res://Scripts/target_line.gd" id="1_5rr44"]
+
+[node name="TargetLine" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+script = ExtResource("1_5rr44")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd505qexxr111"]
+
+[ext_resource type="Texture2D" uid="uid://dn5x12a5e5qab" path="res://Sprites/Damage.png" id="1_i2luy"]
+[ext_resource type="Script" path="res://Scripts/damage_icon.gd" id="1_s2450"]
+[ext_resource type="FontFile" uid="uid://b453ejsanwaxe" path="res://New_Implementation/Font/PrintChar21.ttf" id="2_judfd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3afa1"]
+font = ExtResource("2_judfd")
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageIcon" type="Node2D"]
+script = ExtResource("1_s2450")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i2luy")
+
+[node name="Damage" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 9.0
+offset_bottom = 2.0
+text = "-12"
+label_settings = SubResource("LabelSettings_3afa1")

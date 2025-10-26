@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfis7d7gkte76"]
+
+[ext_resource type="PackedScene" uid="uid://b7qlit3b3rhhi" path="res://Cards/CardBase.tscn" id="1_0oej5"]
+[ext_resource type="Script" path="res://Cards/UnitCard.gd" id="2_4hix8"]
+[ext_resource type="Shader" path="res://Sprites/card.gdshader" id="2_vbijk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sp8i"]
+resource_local_to_scene = true
+shader = ExtResource("2_vbijk")
+shader_parameter/onoff = null
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[node name="CardBase" instance=ExtResource("1_0oej5")]
+script = ExtResource("2_4hix8")
+
+[node name="Base" parent="." index="1"]
+material = SubResource("ShaderMaterial_3sp8i")

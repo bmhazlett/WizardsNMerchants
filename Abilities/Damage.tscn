@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxgvxcvalr3y8"]
+
+[ext_resource type="Script" path="res://Abilities/Damage.gd" id="1_pqx46"]
+
+[node name="Damage" type="Node"]
+script = ExtResource("1_pqx46")

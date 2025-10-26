@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://my5qrmcpyqfd"]
+
+[ext_resource type="Script" path="res://Scripts/player_gold.gd" id="1_hp6y7"]
+[ext_resource type="Script" path="res://Scripts/player_arcane.gd" id="2_3cad8"]
+[ext_resource type="PackedScene" uid="uid://dchu42by6v1vj" path="res://Scenes/selector.tscn" id="3_ye46f"]
+[ext_resource type="PackedScene" uid="uid://clm5bt4xsfyrm" path="res://Scenes/hand.tscn" id="4_pmppv"]
+[ext_resource type="PackedScene" uid="uid://dutt2y3ncmxxr" path="res://Scenes/deck.tscn" id="5_gh8jq"]
+[ext_resource type="PackedScene" uid="uid://u74e3kvuwh5a" path="res://Scenes/cast_zone.tscn" id="6_p0q55"]
+[ext_resource type="PackedScene" uid="uid://dsssnufkxh05q" path="res://Scenes/player_card.tscn" id="8_n3vvj"]
+[ext_resource type="PackedScene" uid="uid://b4tbxugywowan" path="res://Scenes/game_manager.tscn" id="9_cy1kf"]
+[ext_resource type="Texture2D" uid="uid://4r0dr8r2d6hy" path="res://New_Implementation/Sprites/Duel_Arena_Background.png" id="10_05l4c"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="11_u6wko"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerGold" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 292.0
+offset_right = 208.0
+offset_bottom = 315.0
+text = "G"
+script = ExtResource("1_hp6y7")
+
+[node name="PlayerGold_Opponent" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 22.0
+offset_right = 199.0
+offset_bottom = 45.0
+text = "G"
+script = ExtResource("1_hp6y7")
+
+[node name="PlayerArcane" type="Label" parent="."]
+offset_left = 169.0
+offset_top = 310.0
+offset_right = 209.0
+offset_bottom = 333.0
+text = "A"
+script = ExtResource("2_3cad8")
+
+[node name="PlayerArcane_Opponent" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 43.0
+offset_right = 199.0
+offset_bottom = 66.0
+text = "A"
+script = ExtResource("2_3cad8")
+
+[node name="Selector" parent="." instance=ExtResource("3_ye46f")]
+
+[node name="Hand" parent="." instance=ExtResource("4_pmppv")]
+position = Vector2(374, 334)
+
+[node name="Hand_Opponent" parent="." instance=ExtResource("4_pmppv")]
+position = Vector2(396, 20)
+
+[node name="Deck" parent="." instance=ExtResource("5_gh8jq")]
+position = Vector2(792, 328)
+scale = Vector2(0.75, 0.75)
+
+[node name="Deck_Opponent" parent="." instance=ExtResource("5_gh8jq")]
+position = Vector2(790, 145)
+scale = Vector2(0.75, 0.75)
+
+[node name="CastZone" parent="." instance=ExtResource("6_p0q55")]
+position = Vector2(328, 242)
+scale = Vector2(20, 0.5)
+
+[node name="CastZone_Opponent" parent="." instance=ExtResource("6_p0q55")]
+position = Vector2(317, 89)
+scale = Vector2(20, 1)
+metadata/_edit_lock_ = true
+
+[node name="Player_Card" parent="." instance=ExtResource("8_n3vvj")]
+position = Vector2(305, 346)
+scale = Vector2(0.75, 0.75)
+
+[node name="Player_Card_Opponent" parent="." instance=ExtResource("8_n3vvj")]
+position = Vector2(320, 32)
+scale = Vector2(0.75, 0.75)
+
+[node name="GameManager" parent="." instance=ExtResource("9_cy1kf")]
+position = Vector2(607, 181)
+
+[node name="Board" type="Sprite2D" parent="."]
+process_mode = 4
+z_index = -1000
+texture = ExtResource("10_05l4c")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 278.0
+offset_top = 169.0
+offset_right = 333.0
+offset_bottom = 192.0
+text = "DEBUG"
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = -1.0
+offset_top = 161.0
+offset_right = 102.0
+offset_bottom = 192.0
+text = "Title Screen"
+script = ExtResource("11_u6wko")

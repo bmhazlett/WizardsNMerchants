@@ -1,0 +1,254 @@
+[gd_scene load_steps=24 format=3 uid="uid://cva7v8sps5qq0"]
+
+[ext_resource type="Script" path="res://Cards/CardBase.gd" id="1_hnw1p"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_mxbgq"]
+[ext_resource type="Texture2D" uid="uid://u3sj53j83tel" path="res://New_Implementation/Sprites/New_Card_Base.png" id="3_ad8ym"]
+[ext_resource type="Texture2D" uid="uid://d3i4ednkolhdc" path="res://Sprites/New_Sprites/Witch.png" id="4_e6rb2"]
+[ext_resource type="Texture2D" uid="uid://cbcbqg1687tp8" path="res://Sprites/Card_Shadow.png" id="6_8wahb"]
+[ext_resource type="Shader" path="res://Shaders/CardBase_TESTING.gdshader" id="6_pu543"]
+[ext_resource type="Texture2D" uid="uid://ltf4av5i27ac" path="res://New_Implementation/Sprites/Card_Icon.png" id="7_ee0a8"]
+[ext_resource type="FontFile" uid="uid://cmr3y466w6d6u" path="res://New_Implementation/Font/m3x6.ttf" id="8_rfvxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwqwg"]
+resource_local_to_scene = true
+size = Vector2(63.5, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojeom"]
+resource_local_to_scene = true
+shader = ExtResource("2_mxbgq")
+shader_parameter/onoff = 0.0
+shader_parameter/line_color = Color(0.254902, 0.254902, 0.254902, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0dhw"]
+shader = ExtResource("6_pu543")
+shader_parameter/color = Color(1, 0.301961, 0.368627, 0.780392)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrnr3"]
+shader = ExtResource("6_pu543")
+shader_parameter/color = Color(0.247059, 0.631373, 0.239216, 0.772549)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfjq6"]
+shader = ExtResource("6_pu543")
+shader_parameter/color = Color(0, 0.227451, 0.635294, 0.815686)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndxky"]
+shader = ExtResource("6_pu543")
+shader_parameter/color = Color(1, 1, 0.439216, 0.862745)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uwobd"]
+font = ExtResource("8_rfvxs")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcwgs"]
+font = ExtResource("8_rfvxs")
+font_size = 32
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hcgub"]
+font = ExtResource("8_rfvxs")
+font_size = 64
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6n8hw"]
+font = ExtResource("8_rfvxs")
+font_size = 64
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v61jg"]
+line_spacing = -5.0
+font = ExtResource("8_rfvxs")
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2j4yv"]
+font = ExtResource("8_rfvxs")
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wm4s"]
+font = ExtResource("8_rfvxs")
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qebok"]
+line_spacing = -5.0
+font = ExtResource("8_rfvxs")
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_70q6l"]
+polygon = PackedVector2Array(-32, -42, 32, -42, 32, 42, -33, 42)
+
+[node name="CardBase" type="Area2D"]
+script = ExtResource("1_hnw1p")
+
+[node name="CollisionShape2DFull" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 3
+shape = SubResource("RectangleShape2D_jwqwg")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2DHand" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(0, -0.806773)
+scale = Vector2(1, 0.85)
+shape = SubResource("RectangleShape2D_jwqwg")
+disabled = true
+debug_color = Color(0.968627, 0, 0.482353, 0.419608)
+
+[node name="Base" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ojeom")
+position = Vector2(0.5, 0)
+texture = ExtResource("3_ad8ym")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("4_e6rb2")
+
+[node name="Card_Shadow" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(-51, -22)
+texture = ExtResource("6_8wahb")
+
+[node name="CardIcon_Attack" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_v0dhw")
+position = Vector2(-31, 40)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_ee0a8")
+
+[node name="CardIcon_Health" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mrnr3")
+position = Vector2(30, 39)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_ee0a8")
+
+[node name="CardIcon_Arcane" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wfjq6")
+position = Vector2(-18, -41)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ee0a8")
+
+[node name="CardIcon_Gold" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ndxky")
+position = Vector2(-30, -40.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ee0a8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -44.0
+offset_top = 7.0
+offset_right = 138.0
+offset_bottom = 33.0
+scale = Vector2(0.5, 0.5)
+text = "Example Card Name"
+label_settings = SubResource("LabelSettings_uwobd")
+horizontal_alignment = 1
+
+[node name="Gold_Cost" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -31.5
+offset_top = -48.5
+offset_right = -26.5
+offset_bottom = -35.5
+scale = Vector2(0.5, 0.5)
+text = "G"
+label_settings = SubResource("LabelSettings_gcwgs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Arcane_Cost" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -20.5
+offset_top = -49.0
+offset_right = -12.5
+offset_bottom = -23.0
+scale = Vector2(0.5, 0.5)
+text = "A"
+label_settings = SubResource("LabelSettings_gcwgs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Attack" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -35.0
+offset_top = 24.0
+offset_right = -19.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.5)
+text = "2"
+label_settings = SubResource("LabelSettings_hcgub")
+
+[node name="HP" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 43.0
+offset_bottom = 74.0
+scale = Vector2(0.5, 0.5)
+text = "2"
+label_settings = SubResource("LabelSettings_6n8hw")
+
+[node name="Ability" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -26.0
+offset_top = 19.0
+offset_right = 80.0
+offset_bottom = 59.0
+scale = Vector2(0.5, 0.5)
+text = "Activate: Choose one
+- Deal 1 Damage
+- Draw a Card
+- Opponent Discards 1"
+label_settings = SubResource("LabelSettings_v61jg")
+autowrap_mode = 2
+
+[node name="Type" type="Label" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = 17.0
+offset_top = -47.0
+offset_right = 31.0
+offset_bottom = -34.0
+text = "Unit"
+label_settings = SubResource("LabelSettings_2j4yv")
+
+[node name="Class" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -15.0
+offset_top = 33.0
+offset_right = -3.0
+offset_bottom = 46.0
+text = "Gen"
+label_settings = SubResource("LabelSettings_5wm4s")
+
+[node name="Rarity" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 33.0
+offset_right = 11.0
+offset_bottom = 46.0
+text = "R"
+label_settings = SubResource("LabelSettings_qebok")
+metadata/_edit_use_anchors_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_70q6l")

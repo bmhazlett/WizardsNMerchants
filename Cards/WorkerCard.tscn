@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdsx04n6pf1bi"]
+
+[ext_resource type="PackedScene" uid="uid://cva7v8sps5qq0" path="res://Cards/CardBase.tscn" id="1_mwg3y"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_fkoq3"]
+[ext_resource type="Script" path="res://Cards/WorkerCard.gd" id="2_n3x2d"]
+[ext_resource type="Texture2D" uid="uid://ms5srqneh82m" path="res://Sprites/Merchant.png" id="4_46c1v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l33ek"]
+resource_local_to_scene = true
+size = Vector2(63.5, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v227w"]
+resource_local_to_scene = true
+shader = ExtResource("2_fkoq3")
+shader_parameter/onoff = 0.0
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqclk"]
+size = Vector2(33.5859, 33.5)
+
+[node name="CardBase" instance=ExtResource("1_mwg3y")]
+script = ExtResource("2_n3x2d")
+
+[node name="CollisionShape2DFull" parent="." index="0"]
+shape = SubResource("RectangleShape2D_l33ek")
+disabled = true
+
+[node name="CollisionShape2DHand" parent="." index="1"]
+shape = SubResource("RectangleShape2D_l33ek")
+
+[node name="Base" parent="." index="2"]
+visible = false
+material = SubResource("ShaderMaterial_v227w")
+
+[node name="Image" parent="." index="3"]
+position = Vector2(0, 0)
+texture = ExtResource("4_46c1v")
+
+[node name="CardIcon_Attack" parent="." index="5"]
+visible = false
+
+[node name="CardIcon_Health" parent="." index="6"]
+visible = false
+
+[node name="CardIcon_Arcane" parent="." index="7"]
+visible = false
+
+[node name="CardIcon_Gold" parent="." index="8"]
+visible = false
+
+[node name="Gold_Cost" parent="Control" index="1"]
+visible = false
+
+[node name="Arcane_Cost" parent="Control" index="2"]
+visible = false
+
+[node name="Attack" parent="Control" index="3"]
+visible = false
+
+[node name="HP" parent="Control" index="4"]
+visible = false
+
+[node name="Ability" parent="Control" index="5"]
+visible = false
+offset_left = -28.0
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = -9.0
+scale = Vector2(1, 1)
+text = "Produce 1 Gold"
+
+[node name="Class" parent="Control" index="7"]
+visible = false
+
+[node name="Rarity" parent="Control" index="8"]
+visible = false
+
+[node name="CollisionShape2DWorkerSize" type="CollisionShape2D" parent="." index="11"]
+position = Vector2(0.631311, 0.75)
+shape = SubResource("RectangleShape2D_aqclk")

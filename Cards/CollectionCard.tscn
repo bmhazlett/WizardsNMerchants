@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://wxphte7y35nt"]
+
+[ext_resource type="PackedScene" uid="uid://cva7v8sps5qq0" path="res://Cards/CardBase.tscn" id="1_4dk7n"]
+[ext_resource type="Script" path="res://Cards/CollectionCard.gd" id="2_bg3bu"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_sulqn"]
+[ext_resource type="FontFile" uid="uid://cmr3y466w6d6u" path="res://New_Implementation/Font/m3x6.ttf" id="4_d7a7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r75i"]
+resource_local_to_scene = true
+size = Vector2(63.5, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g301u"]
+resource_local_to_scene = true
+shader = ExtResource("2_sulqn")
+shader_parameter/onoff = 0.0
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrvpw"]
+font = ExtResource("4_d7a7f")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="CardBase" instance=ExtResource("1_4dk7n")]
+script = ExtResource("2_bg3bu")
+
+[node name="CollisionShape2DFull" parent="." index="0"]
+shape = SubResource("RectangleShape2D_5r75i")
+
+[node name="CollisionShape2DHand" parent="." index="1"]
+shape = SubResource("RectangleShape2D_5r75i")
+
+[node name="Base" parent="." index="2"]
+material = SubResource("ShaderMaterial_g301u")
+
+[node name="Type" parent="Control" index="6"]
+visible = true
+
+[node name="Class" parent="Control" index="7"]
+visible = false
+
+[node name="Amount" type="Control" parent="." index="11"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.0
+offset_top = 52.0
+offset_right = 37.0
+offset_bottom = 62.0
+
+[node name="Quantity" type="Label" parent="Amount" index="0"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -9.0
+offset_right = 48.0
+offset_bottom = 6.0
+text = "0 / 0"
+label_settings = SubResource("LabelSettings_nrvpw")

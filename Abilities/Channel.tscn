@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br71xhf4p0mso"]
+
+[ext_resource type="Script" path="res://Abilities/Channel.gd" id="1_jtn8e"]
+
+[node name="Channel" type="Node"]
+script = ExtResource("1_jtn8e")

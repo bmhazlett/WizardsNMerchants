@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4y5rhj2p10ji"]
+
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="1_88lnb"]
+[ext_resource type="PackedScene" uid="uid://c8oh14ex251yk" path="res://Scenes/deck_viewer_tabs.tscn" id="1_va2a1"]
+[ext_resource type="Script" path="res://Scripts/temp_class_change_knight.gd" id="2_xqqyi"]
+[ext_resource type="Script" path="res://Scripts/temp_class_change_rouge.gd" id="3_0mrdb"]
+[ext_resource type="Script" path="res://Scenes/temp_class_change_mage.gd" id="5_5sjb3"]
+[ext_resource type="Script" path="res://Scenes/Label2.gd" id="6_0xpw6"]
+[ext_resource type="PackedScene" uid="uid://4v1bcy0716kl" path="res://Scenes/collection_viewer.tscn" id="6_3jyc7"]
+[ext_resource type="PackedScene" uid="uid://dchu42by6v1vj" path="res://Scenes/selector.tscn" id="8_jrwup"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_axbr1"]
+font_size = 100
+
+[node name="DeckEditor" type="Node2D"]
+position = Vector2(0, 1)
+
+[node name="DeckViewerTabs" parent="." instance=ExtResource("1_va2a1")]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 224.0
+offset_bottom = 566.0
+
+[node name="Back" type="Button" parent="."]
+offset_left = 228.0
+offset_top = 6.0
+offset_right = 385.0
+offset_bottom = 37.0
+text = "Back to Main Menu"
+script = ExtResource("1_88lnb")
+
+[node name="Knight" type="Button" parent="."]
+offset_left = 580.0
+offset_top = 45.0
+offset_right = 639.0
+offset_bottom = 76.0
+text = "Knight"
+script = ExtResource("2_xqqyi")
+
+[node name="Rouge" type="Button" parent="."]
+offset_left = 580.0
+offset_top = 77.0
+offset_right = 639.0
+offset_bottom = 108.0
+text = "Rogue"
+script = ExtResource("3_0mrdb")
+
+[node name="Mage" type="Button" parent="."]
+offset_left = 580.0
+offset_top = 108.0
+offset_right = 639.0
+offset_bottom = 139.0
+text = "Mage"
+script = ExtResource("5_5sjb3")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 152.0
+offset_top = 5.0
+offset_right = 586.0
+offset_bottom = 142.0
+scale = Vector2(0.2, 0.2)
+text = "Deck List"
+label_settings = SubResource("LabelSettings_axbr1")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 862.0
+offset_bottom = 141.0
+scale = Vector2(0.2, 0.2)
+text = "Class: "
+label_settings = SubResource("LabelSettings_axbr1")
+script = ExtResource("6_0xpw6")
+
+[node name="CollectionViewer" parent="." instance=ExtResource("6_3jyc7")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 152.0
+offset_top = 49.0
+offset_right = 152.0
+offset_bottom = 49.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Selector" parent="." instance=ExtResource("8_jrwup")]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Merchants&Wizards"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
@@ -20,14 +20,29 @@ config/icon="res://Sprites/icon.svg"
 SignalBus="*res://Scripts/signal_bus.gd"
 UiVariables="*res://Scripts/ui_variables.gd"
 CardDB="*res://Scripts/card_db.gd"
+Collection="*res://Scripts/collection.gd"
+GameVariables="*res://Scenes/game_variables.tscn"
+StaticEffects="*res://Scripts/static_effects.gd"
+TransitionScreen="*res://Scenes/transition_screen.tscn"
 
 [display]
 
-window/size/viewport_width=1980
-window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
+
+[importer_defaults]
+
+animation_library={
+"animation/fps": 60.0
+}
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

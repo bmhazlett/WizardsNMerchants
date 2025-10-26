@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cque6rb867gxl"]
+
+[ext_resource type="PackedScene" uid="uid://cva7v8sps5qq0" path="res://Cards/CardBase.tscn" id="1_josec"]
+[ext_resource type="Script" path="res://Cards/SpellCard.gd" id="2_laalq"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_vctrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcasm"]
+resource_local_to_scene = true
+size = Vector2(63.5, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3d1ru"]
+resource_local_to_scene = true
+shader = ExtResource("2_vctrb")
+shader_parameter/onoff = 0.0
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[node name="CardBase" instance=ExtResource("1_josec")]
+script = ExtResource("2_laalq")
+
+[node name="CollisionShape2DFull" parent="." index="0"]
+shape = SubResource("RectangleShape2D_xcasm")
+
+[node name="CollisionShape2DHand" parent="." index="1"]
+shape = SubResource("RectangleShape2D_xcasm")
+
+[node name="Base" parent="." index="2"]
+material = SubResource("ShaderMaterial_3d1ru")
+
+[node name="CardIcon_Attack" parent="." index="5"]
+visible = false
+
+[node name="CardIcon_Health" parent="." index="6"]
+visible = false
+
+[node name="Class" parent="Control" index="7"]
+visible = false

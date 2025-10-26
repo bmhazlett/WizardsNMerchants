@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6jgwd6n7vi80"]
+
+[ext_resource type="Script" path="res://testing/deck_viewer_tabs_test.gd" id="1_fmp7v"]
+
+[node name="tabcontainer" type="TabContainer"]
+offset_right = 221.0
+offset_bottom = 575.0
+script = ExtResource("1_fmp7v")

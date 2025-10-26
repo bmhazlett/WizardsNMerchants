@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjtarp5ego21q"]
+
+[ext_resource type="Texture2D" uid="uid://4r0dr8r2d6hy" path="res://New_Implementation/Sprites/Duel_Arena_Background.png" id="1_0jysc"]
+[ext_resource type="PackedScene" uid="uid://b1vjb1pajyowm" path="res://New_Implementation/Card_Scenes_and_Scripts/CardBase.tscn" id="2_yx0gb"]
+[ext_resource type="PackedScene" uid="uid://bo7gl1pqrhc14" path="res://New_Implementation/UI_Scenes_and_Scripts/Mouse.tscn" id="3_k3xth"]
+
+[node name="DuelArena" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_0jysc")
+
+[node name="CardBase" parent="." instance=ExtResource("2_yx0gb")]
+position = Vector2(304, 272)
+
+[node name="Mouse" parent="." instance=ExtResource("3_k3xth")]

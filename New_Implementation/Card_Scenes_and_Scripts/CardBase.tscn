@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1vjb1pajyowm"]
+
+[ext_resource type="Texture2D" uid="uid://u3sj53j83tel" path="res://New_Implementation/Sprites/New_Card_Base.png" id="1_uoy14"]
+[ext_resource type="FontFile" uid="uid://b453ejsanwaxe" path="res://New_Implementation/Font/PrintChar21.ttf" id="2_1fmqd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jobl5"]
+font = ExtResource("2_1fmqd")
+font_size = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stjw4"]
+size = Vector2(68, 88)
+
+[node name="CardBase" type="Area2D"]
+position = Vector2(255, 155)
+
+[node name="CardName" type="Label" parent="."]
+offset_left = -31.0
+offset_top = 20.0
+offset_right = 31.0
+offset_bottom = 26.0
+text = "Name"
+label_settings = SubResource("LabelSettings_jobl5")
+horizontal_alignment = 1
+
+[node name="CardName2" type="Label" parent="."]
+offset_left = -31.0
+offset_top = 28.0
+offset_right = 31.0
+offset_bottom = 41.0
+text = "Lorem Ipsum
+Type Shit"
+label_settings = SubResource("LabelSettings_jobl5")
+
+[node name="CardBackground" type="Sprite2D" parent="."]
+texture = ExtResource("1_uoy14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_stjw4")

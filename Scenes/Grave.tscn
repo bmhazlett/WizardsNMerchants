@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm4af0s5ehq3a"]
+
+[ext_resource type="Script" path="res://Scripts/Grave.gd" id="1_vnhid"]
+[ext_resource type="Texture2D" uid="uid://6sd7ddkukben" path="res://Sprites/Grave.png" id="2_0qrga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmapi"]
+size = Vector2(64, 192)
+
+[node name="Grave" type="Area2D"]
+script = ExtResource("1_vnhid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dmapi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_0qrga")

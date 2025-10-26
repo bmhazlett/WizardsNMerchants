@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsssnufkxh05q"]
+[gd_scene load_steps=13 format=3 uid="uid://dsssnufkxh05q"]
 
 [ext_resource type="Script" path="res://Scripts/player_card.gd" id="1_11kmn"]
-[ext_resource type="Shader" path="res://Sprites/card.gdshader" id="2_f8yvh"]
-[ext_resource type="Texture2D" uid="uid://68u6ggja2uvk" path="res://Sprites/Ice-sword-card.png" id="3_brmrr"]
+[ext_resource type="Shader" path="res://Shaders/card.gdshader" id="2_f8yvh"]
+[ext_resource type="Texture2D" uid="uid://u3sj53j83tel" path="res://New_Implementation/Sprites/New_Card_Base.png" id="3_r8by2"]
+[ext_resource type="Texture2D" uid="uid://duwbflpwkbs2e" path="res://Sprites/New_Sprites/Knight-2.png" id="4_upnt2"]
+[ext_resource type="FontFile" uid="uid://b453ejsanwaxe" path="res://New_Implementation/Font/PrintChar21.ttf" id="5_e4u8x"]
+[ext_resource type="Texture2D" uid="uid://ct7srjosbhcyp" path="res://New_Implementation/Sprites/Heart.png" id="6_rb5ho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4aaj"]
-size = Vector2(96, 128)
+size = Vector2(56, 58)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txtyy"]
 resource_local_to_scene = true
@@ -15,89 +18,95 @@ shader_parameter/line_color = Color(1, 0, 0, 1)
 shader_parameter/line_thickness = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_arsag"]
-font_size = 11
+line_spacing = 1.0
+font = ExtResource("5_e4u8x")
+font_size = 8
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jgjm"]
-font_size = 11
+font_size = 100
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Card2" type="Area2D"]
-position = Vector2(623, 411)
+[sub_resource type="LabelSettings" id="LabelSettings_3flwk"]
+font = ExtResource("5_e4u8x")
+font_size = 5
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_snnas"]
+font = ExtResource("5_e4u8x")
+font_size = 8
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Area2D"]
 script = ExtResource("1_11kmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_p4aaj")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_txtyy")
-texture = ExtResource("3_brmrr")
+texture = ExtResource("3_r8by2")
+metadata/_edit_lock_ = true
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("4_upnt2")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = -47.0
-offset_top = -64.0
-offset_right = 48.0
-offset_bottom = 63.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="Name" type="Label" parent="Control"]
+visible = false
 layout_mode = 2
-
-[node name="Name" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = -33.0
+offset_top = 19.0
+offset_right = 29.0
+offset_bottom = 27.0
 text = "Name"
 label_settings = SubResource("LabelSettings_arsag")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Cost" type="Label" parent="Control"]
+visible = false
 layout_mode = 2
-
-[node name="Cost" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 39.0
+offset_top = -96.0
+offset_right = 63.0
+offset_bottom = -80.0
+scale = Vector2(0.1, 0.1)
 text = "Cost"
 label_settings = SubResource("LabelSettings_0jgjm")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+[node name="Ability" type="Label" parent="Control"]
+visible = false
 layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="Ability" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
+offset_left = -32.0
+offset_top = 27.0
+offset_right = 30.0
+offset_bottom = 32.0
 text = "Ability"
+label_settings = SubResource("LabelSettings_3flwk")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer"]
+[node name="HP" type="Label" parent="Control"]
+z_index = 6
 layout_mode = 2
+offset_left = -9.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 10.0
+text = "20"
+label_settings = SubResource("LabelSettings_snnas")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="Class" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Gen"
-
-[node name="Type" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Unit"
-
-[node name="MarginContainer3" type="MarginContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="Attack" type="Label" parent="Control/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-text = "2"
-
-[node name="HP" type="Label" parent="Control/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-text = "2"
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_rb5ho")

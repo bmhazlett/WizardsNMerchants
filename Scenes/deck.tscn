@@ -1,19 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dutt2y3ncmxxr"]
 
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="1_xmygl"]
-[ext_resource type="Texture2D" uid="uid://3o1kg12qcpsu" path="res://Sprites/Card_back.png" id="2_dw1ta"]
+[ext_resource type="Texture2D" uid="uid://bbwcqbjof5bf7" path="res://Sprites/New_Card_Back.png" id="2_660v6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uptw4"]
-size = Vector2(107, 133)
+size = Vector2(64, 83)
 
 [node name="Deck" type="Area2D"]
-position = Vector2(479, 320)
 script = ExtResource("1_xmygl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -1)
-texture = ExtResource("2_dw1ta")
+texture = ExtResource("2_660v6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_uptw4")

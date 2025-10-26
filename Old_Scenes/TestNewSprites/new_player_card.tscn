@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddear0ssf2f6n"]
+
+[ext_resource type="Script" path="res://Scripts/player_card.gd" id="1_4lkp8"]
+[ext_resource type="Texture2D" uid="uid://cry8rtul3g0x0" path="res://Sprites/New-Card-Base.png" id="1_drh6f"]
+[ext_resource type="Texture2D" uid="uid://duwbflpwkbs2e" path="res://Sprites/New_Sprites/Knight-2.png" id="2_pbc8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krkdu"]
+size = Vector2(108, 138)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3svyl"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwy4k"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsfil"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq8w1"]
+line_spacing = 1.0
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjx7n"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8ahd"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gsofi"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="NewCardBase" type="Area2D"]
+position = Vector2(52, 70)
+script = ExtResource("1_4lkp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_krkdu")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_drh6f")
+
+[node name="Image" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -26)
+texture = ExtResource("2_pbc8c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -30.0
+offset_top = 8.0
+offset_right = 621.0
+offset_bottom = 145.0
+scale = Vector2(0.1, 0.1)
+text = "Name"
+label_settings = SubResource("LabelSettings_3svyl")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -43.0
+offset_top = -63.0
+offset_right = 169.0
+offset_bottom = 74.0
+scale = Vector2(0.1, 0.1)
+text = "Cost"
+label_settings = SubResource("LabelSettings_lwy4k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Attack" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -42.0
+offset_top = 50.0
+offset_right = 15.0
+offset_bottom = 187.0
+scale = Vector2(0.1, 0.1)
+text = "2"
+label_settings = SubResource("LabelSettings_qsfil")
+metadata/_edit_use_anchors_ = true
+
+[node name="HP" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 43.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 187.0
+scale = Vector2(0.1, 0.1)
+text = "2"
+label_settings = SubResource("LabelSettings_gq8w1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ability" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -43.0
+offset_top = 22.0
+offset_right = 1248.0
+offset_bottom = 462.0
+scale = Vector2(0.05, 0.05)
+text = "Ability"
+label_settings = SubResource("LabelSettings_rjx7n")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Type" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 51.0
+offset_right = 206.0
+offset_bottom = 188.0
+scale = Vector2(0.075, 0.075)
+text = "Unit"
+label_settings = SubResource("LabelSettings_p8ahd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Class" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -24.0
+offset_top = 51.0
+offset_right = 170.0
+offset_bottom = 188.0
+scale = Vector2(0.075, 0.075)
+text = "Gen"
+label_settings = SubResource("LabelSettings_gsofi")
+metadata/_edit_use_anchors_ = true

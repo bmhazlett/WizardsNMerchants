@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpvig0w81jl44"]
+
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="1_wblc8"]
+[ext_resource type="Script" path="res://Scripts/MoneyLabel.gd" id="2_8bwpg"]
+[ext_resource type="Script" path="res://Scripts/GetRandomCard.gd" id="3_71net"]
+[ext_resource type="Script" path="res://Scripts/GetPack.gd" id="4_q1feo"]
+[ext_resource type="Texture2D" uid="uid://chx2b8h005iwu" path="res://Sprites/Booster_Pack.png" id="5_gm68j"]
+[ext_resource type="PackedScene" uid="uid://dchu42by6v1vj" path="res://Scenes/selector.tscn" id="6_ega1v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xk65i"]
+font_size = 100
+
+[node name="Shop" type="Node2D"]
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 28.0
+offset_right = 144.0
+offset_bottom = 59.0
+text = "Title Screen"
+script = ExtResource("1_wblc8")
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 83.0
+offset_right = 151.0
+offset_bottom = 114.0
+scale = Vector2(0.25, 0.25)
+text = "0 Money"
+label_settings = SubResource("LabelSettings_xk65i")
+script = ExtResource("2_8bwpg")
+
+[node name="GetRandomCard" type="Button" parent="."]
+offset_left = 197.0
+offset_top = 28.0
+offset_right = 494.0
+offset_bottom = 90.0
+text = "Get Random Card (Cost 1)"
+script = ExtResource("3_71net")
+
+[node name="GetPack" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 193.0
+offset_right = 535.0
+offset_bottom = 256.0
+text = "Get Pack of Six Cards (Cost 5)"
+script = ExtResource("4_q1feo")
+
+[node name="BoosterPack" type="Sprite2D" parent="."]
+position = Vector2(71, 216)
+texture = ExtResource("5_gm68j")
+
+[node name="Selector" parent="." instance=ExtResource("6_ega1v")]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://c37wigehpep43"]
+
+[ext_resource type="Script" path="res://Scripts/StartGameDebug.gd" id="1_1gapc"]
+[ext_resource type="Theme" uid="uid://di8mcpx3b5flb" path="res://Themes/base_theme.tres" id="2_mph7q"]
+[ext_resource type="Script" path="res://Scripts/StartGame.gd" id="3_sn6yb"]
+[ext_resource type="Script" path="res://Scripts/DeckEditor.gd" id="4_wjrdk"]
+[ext_resource type="Script" path="res://Scripts/to_shop.gd" id="5_4p0rs"]
+[ext_resource type="Texture2D" uid="uid://b5sum8ek0idg6" path="res://Sprites/Logo.png" id="6_fywe0"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="StartGameDebug" type="Button" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 221.0
+offset_right = 251.0
+offset_bottom = 252.0
+text = "Start Game Debug"
+script = ExtResource("1_1gapc")
+
+[node name="StartGame1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 179.0
+offset_right = 205.0
+offset_bottom = 210.0
+theme = ExtResource("2_mph7q")
+text = "Start Game 1"
+script = ExtResource("3_sn6yb")
+
+[node name="DeckEditor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 263.0
+offset_right = 200.0
+offset_bottom = 294.0
+text = "Deck Editor"
+script = ExtResource("4_wjrdk")
+
+[node name="Shop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 303.0
+offset_right = 153.0
+offset_bottom = 334.0
+text = "Shop"
+script = ExtResource("5_4p0rs")
+
+[node name="StartGame2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 180.0
+offset_right = 330.0
+offset_bottom = 211.0
+theme = ExtResource("2_mph7q")
+text = "Start Game 2"
+script = ExtResource("3_sn6yb")
+
+[node name="StartGame3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 179.0
+offset_right = 468.0
+offset_bottom = 210.0
+theme = ExtResource("2_mph7q")
+text = "Start Game 3"
+script = ExtResource("3_sn6yb")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(318.625, 107.5)
+scale = Vector2(2.50368, 3.63889)
+texture = ExtResource("6_fywe0")

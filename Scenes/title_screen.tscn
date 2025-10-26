@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2b3e1bgmyell"]
+
+[ext_resource type="Script" path="res://Scripts/StartGameDebug.gd" id="1_061b1"]
+[ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_qk2gc"]
+[ext_resource type="Theme" uid="uid://di8mcpx3b5flb" path="res://Themes/base_theme.tres" id="2_s35b1"]
+[ext_resource type="Script" path="res://Scripts/DeckEditor.gd" id="3_4u1yb"]
+[ext_resource type="Script" path="res://Scripts/to_shop.gd" id="4_qrtdt"]
+[ext_resource type="Script" path="res://Scripts/TopDown.gd" id="6_gw8u6"]
+[ext_resource type="Texture2D" uid="uid://b5sum8ek0idg6" path="res://Sprites/Logo.png" id="6_l8qt2"]
+[ext_resource type="PackedScene" uid="uid://dchu42by6v1vj" path="res://Scenes/selector.tscn" id="7_ba3od"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="StartGameDebug" type="Button" parent="."]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 181.0
+offset_right = 625.0
+offset_bottom = 212.0
+text = "Start Game Debug"
+script = ExtResource("1_061b1")
+
+[node name="StartGame1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 181.0
+offset_right = 205.0
+offset_bottom = 212.0
+theme = ExtResource("2_s35b1")
+text = "Start Game 1"
+script = ExtResource("1_qk2gc")
+
+[node name="DeckEditor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 223.0
+offset_right = 574.0
+offset_bottom = 254.0
+text = "Deck Editor"
+script = ExtResource("3_4u1yb")
+
+[node name="Shop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 263.0
+offset_right = 527.0
+offset_bottom = 294.0
+text = "Shop"
+script = ExtResource("4_qrtdt")
+
+[node name="StartGame2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 223.0
+offset_right = 205.0
+offset_bottom = 254.0
+theme = ExtResource("2_s35b1")
+text = "Start Game 2"
+script = ExtResource("1_qk2gc")
+
+[node name="StartGame3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 263.0
+offset_right = 213.0
+offset_bottom = 294.0
+theme = ExtResource("2_s35b1")
+text = "Start Game 3"
+script = ExtResource("1_qk2gc")
+
+[node name="TopDown" type="Button" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 261.0
+offset_right = 458.0
+offset_bottom = 292.0
+theme = ExtResource("2_s35b1")
+text = "TopDown"
+script = ExtResource("6_gw8u6")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(335, 94)
+scale = Vector2(2.50368, 3.63889)
+texture = ExtResource("6_l8qt2")
+
+[node name="Selector" parent="." instance=ExtResource("7_ba3od")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqk7xy1n8edwq"]
+
+[ext_resource type="Texture2D" uid="uid://cia3p3k7x5ppb" path="res://Old_Scenes/TestNewSprites/480p_Mock_Up.png" id="1_yxtv6"]
+[ext_resource type="FontFile" uid="uid://cmr3y466w6d6u" path="res://New_Implementation/Font/m3x6.ttf" id="2_2wted"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggu5l"]
+font = ExtResource("2_2wted")
+font_size = 32
+
+[node name="480pMockUp" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_yxtv6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 571.0
+offset_top = 346.0
+offset_right = 915.0
+offset_bottom = 372.0
+scale = Vector2(0.25, 0.25)
+text = "I am testing a large number of characters"
+label_settings = SubResource("LabelSettings_ggu5l")

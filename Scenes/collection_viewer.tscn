@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://4v1bcy0716kl"]
+
+[ext_resource type="Script" path="res://Scripts/BackPage.gd" id="1_kdocr"]
+[ext_resource type="Script" path="res://Scripts/ForwardPage.gd" id="2_ckbsi"]
+[ext_resource type="Script" path="res://Scripts/CurrentPage.gd" id="3_jhn8u"]
+
+[node name="CollectionViewer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonBack" type="Button" parent="."]
+layout_mode = 0
+offset_top = 171.0
+offset_right = 18.0
+offset_bottom = 223.0
+text = "<"
+script = ExtResource("1_kdocr")
+
+[node name="ButtonForward" type="Button" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 171.0
+offset_right = 447.0
+offset_bottom = 223.0
+text = ">"
+script = ExtResource("2_ckbsi")
+
+[node name="PageViewer" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 35.0
+text = "Current
+Page: "
+script = ExtResource("3_jhn8u")
